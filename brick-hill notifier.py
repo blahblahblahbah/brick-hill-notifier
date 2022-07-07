@@ -19,7 +19,7 @@ async def bh_notifier():
 
         if shoplist.status_code == 200:
             for item in shoplist.json()["data"]:
-                if item["id"] in [itemP["id"] for itemP in previous.json()["data"]]:
+                if not item["id"] in [itemP["id"] for itemP in previous.json()["data"]]:
                     duration = (datetime.now() - datetime.strptime(item["updated_at"][0:19], "%Y-%m-%dT%H:%M:%S")).total_seconds()
                     newitem = item["created_at"][0:10]==item["updated_at"][0:10]
                     req = await Client.post(newitem and Webhooks.get("Webhooks").get("UploadedItems") or Webhooks.get("Webhooks").get("UpdatedItems"),
