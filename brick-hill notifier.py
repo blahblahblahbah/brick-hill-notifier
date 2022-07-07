@@ -5,13 +5,8 @@ import json
 
 
 
-
 Webhooks = json.load( open("webhooks.json") )
 Client = httpx.AsyncClient()
-TimeFormat = ""
-
-
-
 
 async def bh_notifier():
     for respone in [ [await Client.get(Webhooks.get("Webhooks").get(url)),url] for url in Webhooks.get("Webhooks")]:
