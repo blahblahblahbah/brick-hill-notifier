@@ -1,0 +1,9 @@
+{
+    "Webhooks": {
+        "UpdatedItems": "https://discord.com/api/webhooks/",
+        "UploadedItems": "https://discord.com/api/webhooks/"
+    },
+    "Mention": "<@&role_id>",
+    
+    "refreshInterval": 5
+}
